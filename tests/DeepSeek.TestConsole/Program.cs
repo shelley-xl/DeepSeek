@@ -1,26 +1,4 @@
-# DeepSeek
-
-DeepSeek Api µ÷ÓÃ·â×°
-
-[![Nuget](https://img.shields.io/nuget/v/DeepSeek.svg?style=flat-square)](https://www.nuget.org/packages/DeepSeek)
-[![Downloads](https://img.shields.io/nuget/dt/DeepSeek.svg?style=flat-square)](https://www.nuget.org/stats/packages/DeepSeek?groupby=Version)
-[![License](https://img.shields.io/github/license/shelley-xl/DeepSeek.svg)](https://github.com/shelley-xl/DeepSeek/blob/master/LICENSE)
-![Vistors](https://visitor-badge.laobi.icu/badge?page_id=https://github.com/shelley-xl/DeepSeek)
-
-## °²×°
-
-DeepSeek ÒÔ NuGet °üµÄĞÎÊ½Ìá¹©¡£Äú¿ÉÒÔÊ¹ÓÃ NuGet °ü¿ØÖÆÌ¨´°¿Ú°²×°Ëü£º
-
-```
-PM> Install-Package DeepSeek
-```
-
-## Ê¹ÓÃ
-
-Program.cs
-
-```c#
-var services = new ServiceCollection();
+ï»¿var services = new ServiceCollection();
 
 var configuration = new ConfigurationBuilder()
    .SetBasePath(AppContext.BaseDirectory)
@@ -37,7 +15,7 @@ var deepSeekService = provider.GetRequiredService<IDeepSeekService>();
 while (true)
 {
     Console.WriteLine();
-    Console.Write("ÇëÊäÈë£º");
+    Console.Write("è¯·è¾“å…¥ï¼š");
 
     var input = Console.ReadLine();
 
@@ -47,7 +25,7 @@ while (true)
     }
 
     Console.WriteLine();
-    Console.Write("ÕıÔÚË¼¿¼£¬ÇëÉÔºó...");
+    Console.Write("æ­£åœ¨æ€è€ƒï¼Œè¯·ç¨å...");
     Console.WriteLine();
     Console.WriteLine();
 
@@ -81,21 +59,5 @@ while (true)
         continue;
     }
     Console.WriteLine();
-    Console.WriteLine($"ÕË»§Óà¶î£º{balance.BalanceInfos?.FirstOrDefault()?.TotalBalance}");
+    Console.WriteLine($"è´¦æˆ·ä½™é¢ï¼š{balance.BalanceInfos?.FirstOrDefault()?.TotalBalance}");
 }
-
-```
-
-appsettings.json
-
-```json
-{
-  "DeepSeek": {
-    "ApiKey": "sk-xxxxxxxxxxxxxxxx"
-  }
-}
-```
-
-## ¸üĞÂÈÕÖ¾
-
-[CHANGELOG](CHANGELOG.md)
