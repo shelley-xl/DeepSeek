@@ -1,21 +1,21 @@
 # DeepSeek
 
-DeepSeek.NET ¼¯³É Api/Ollama
+DeepSeek.NET é›†æˆ Api/Ollama
 
 [![Nuget](https://img.shields.io/nuget/v/DeepSeek.svg?style=flat-square)](https://www.nuget.org/packages/DeepSeek)
 [![Downloads](https://img.shields.io/nuget/dt/DeepSeek.svg?style=flat-square)](https://www.nuget.org/stats/packages/DeepSeek?groupby=Version)
 [![License](https://img.shields.io/github/license/shelley-xl/DeepSeek.svg)](https://github.com/shelley-xl/DeepSeek/blob/master/LICENSE)
 ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=https://github.com/shelley-xl/DeepSeek)
 
-## °²×°
+## å®‰è£…
 
-DeepSeek ÒÔ NuGet °üµÄĞÎÊ½Ìá¹©¡£Äú¿ÉÒÔÊ¹ÓÃ NuGet °ü¿ØÖÆÌ¨´°¿Ú°²×°Ëü£º
+DeepSeek ä»¥ NuGet åŒ…çš„å½¢å¼æä¾›ã€‚æ‚¨å¯ä»¥ä½¿ç”¨ NuGet åŒ…æ§åˆ¶å°çª—å£å®‰è£…å®ƒï¼š
 
 ```
 PM> Install-Package DeepSeek
 ```
 
-## Api Ê¹ÓÃÊ¾Àı
+## Api ä½¿ç”¨ç¤ºä¾‹
 
 Program.cs
 
@@ -37,7 +37,7 @@ var deepSeekService = provider.GetRequiredService<IDeepSeekService>();
 while (true)
 {
     Console.WriteLine();
-    Console.Write("ÇëÊäÈë£º");
+    Console.Write("è¯·è¾“å…¥ï¼š");
 
     var input = Console.ReadLine();
 
@@ -47,7 +47,7 @@ while (true)
     }
 
     Console.WriteLine();
-    Console.Write("ÕıÔÚË¼¿¼£¬ÇëÉÔºó...");
+    Console.Write("æ­£åœ¨æ€è€ƒï¼Œè¯·ç¨å...");
     Console.WriteLine();
     Console.WriteLine();
 
@@ -83,7 +83,7 @@ while (true)
     }
 
     Console.WriteLine();
-    Console.WriteLine($"ÕË»§Óà¶î£º{balance?.BalanceInfos?.FirstOrDefault()?.TotalBalance}");
+    Console.WriteLine($"è´¦æˆ·ä½™é¢ï¼š{balance?.BalanceInfos?.FirstOrDefault()?.TotalBalance}");
 }
 ```
 
@@ -97,7 +97,7 @@ appsettings.json
 }
 ```
 
-## Ollama Ê¹ÓÃÊ¾Àı
+## Ollama ä½¿ç”¨ç¤ºä¾‹
 
 ```c#
 var services = new ServiceCollection();
@@ -111,7 +111,7 @@ var deepSeekService = provider.GetRequiredService<IDeepSeekService>();
 while (true)
 {
     Console.WriteLine();
-    Console.Write("ÇëÊäÈë£º");
+    Console.Write("è¯·è¾“å…¥ï¼š");
 
     var input = Console.ReadLine();
 
@@ -121,7 +121,7 @@ while (true)
     }
 
     Console.WriteLine();
-    Console.Write("ÕıÔÚË¼¿¼£¬ÇëÉÔºó...");
+    Console.Write("æ­£åœ¨æ€è€ƒï¼Œè¯·ç¨å...");
     Console.WriteLine();
     Console.WriteLine();
 
@@ -151,6 +151,6 @@ while (true)
 }
 ```
 
-## ¸üĞÂÈÕÖ¾
+## æ›´æ–°æ—¥å¿—
 
 [CHANGELOG](CHANGELOG.md)
