@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<!-- version numbers will be updated by build -->
+		<Version>1.0.0</Version>
+		<TotalDays>$([System.DateTime]::Now.Date.Subtract($([System.DateTime]::Parse($([System.String]::Format("{0}-02-10",2025))))).TotalDays)</TotalDays>
+		<AssemblyVersion>$(Version).$(TotalDays)</AssemblyVersion>
+		<FileVersion>$(Version).$(TotalDays)</FileVersion>
+		<Authors>徐来</Authors>
+		<Company>徐来</Company>
+		<Title>DeepSeek</Title>
+		<Product>DeepSeek.NET</Product>
+		<Description></Description>
+		<Summary></Summary>
+		<Copyright>Copyright © 徐来 Xulai 2025</Copyright>
+		<RootNamespace>DeepSeek</RootNamespace>
+		<AssemblyName>DeepSeek</AssemblyName>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/shelley-xl/DeepSeek</RepositoryUrl>
+		<PackageId>DeepSeek</PackageId>
+		<PackageTags>tools,helper,effective</PackageTags>
+		<PackageIcon>LOGO.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/shelley-xl/DeepSeek</PackageProjectUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="9.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="bin\**" />
+		<EmbeddedResource Remove="bin\**" />
+		<None Remove="bin\**" />
+		<Compile Remove="obj\**" />
+		<EmbeddedResource Remove="obj\**" />
+		<None Remove="obj\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE">
+			<Visible>false</Visible>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\LOGO.png">
+			<Visible>false</Visible>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Visible>false</Visible>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\CHANGELOG.md">
+			<Visible>false</Visible>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>
