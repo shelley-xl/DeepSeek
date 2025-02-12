@@ -21,18 +21,18 @@ public class UnitTest
         _deepSeekService = provider.GetRequiredService<IDeepSeekService>();
     }
 
-    [Fact]
-    public async Task Test()
+    [Fact(DisplayName = "Api ≤‚ ‘")]
+    public async Task TestApi()
     {
         var cancellationToken = new CancellationTokenSource();
 
-        var request = new ChatRequest
+        var request = new ApiChatRequest
         {
             Messages = [Message.NewUserMessage("ƒ„∫√")],
             Model = Constants.Models.ChatModel,
         };
 
-        var choices = _deepSeekService.ChatStreamAsync(request, cancellationToken.Token);
+        var choices = _deepSeekService.ApiChatStreamAsync(request, cancellationToken.Token);
 
         if (choices is null)
         {
@@ -46,6 +46,7 @@ public class UnitTest
         Debug.WriteLine("\r\n");
 
         var index = 0;
+
         await foreach (var choice in choices)
         {
             if (index == 0)
@@ -60,8 +61,8 @@ public class UnitTest
 
         Debug.WriteLine("\r\n");
 
-        var balance = await _deepSeekService.GetUserBalanceAsync(cancellationToken.Token);
-        
+        var balance = await _deepSeekService.ApiGetUserBalanceAsync(cancellationToken.Token);
+
         if (balance is null)
         {
             Debug.WriteLine(_deepSeekService.ErrorMessage);
@@ -71,6 +72,48 @@ public class UnitTest
 
         Debug.WriteLine("\r\n");
         Debug.WriteLine($"’Àªß”‡∂Ó£∫{balance.BalanceInfos?.FirstOrDefault()?.TotalBalance}");
+        Debug.WriteLine("\r\n");
+    }
+
+    [Fact(DisplayName = "Ollama ≤‚ ‘")]
+    public async Task TestOllama()
+    {
+        var cancellationToken = new CancellationTokenSource();
+
+        var request = new OllamaChatRequest
+        {
+            ModelId = Constants.OllamaModels.DeepSeek_R1_7b,
+            BaseUrl = "http://localhost:11434",
+            PromptTemplate = "ƒ„∫√",
+        };
+
+        var response = _deepSeekService.OllamaChatStreamingAsync(request, cancellationToken.Token);
+
+        if (response is null)
+        {
+            Debug.WriteLine(_deepSeekService.ErrorMessage);
+        }
+
+        Assert.NotNull(response);
+
+        Debug.WriteLine("\r\n");
+        Debug.WriteLine("’˝‘⁄Àºøº£¨«Î…‘∫Û...");
+        Debug.WriteLine("\r\n");
+
+        var index = 0;
+
+        await foreach (var result in response)
+        {
+            if (index == 0)
+            {
+                Debug.WriteLine("\r\n");
+            }
+
+            Debug.Write(result);
+
+            index++;
+        }
+
         Debug.WriteLine("\r\n");
     }
 }
