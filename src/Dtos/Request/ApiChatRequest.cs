@@ -1,9 +1,9 @@
 ﻿namespace DeepSeek.Dtos.Request;
 
 /// <summary>
-/// 聊天请求
+/// Api聊天请求
 /// </summary>
-public class ChatRequest
+public class ApiChatRequest
 {
     /// <summary>
     /// 消息列表

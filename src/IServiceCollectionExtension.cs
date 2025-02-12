@@ -14,18 +14,26 @@ public static class IServiceCollectionExtension
     {
         var provider = services.BuildServiceProvider();
 
-        var config = provider.GetRequiredService<IConfiguration>();
+        var config = provider.GetService<IConfiguration>();
 
-        var deepSeekOptions = config.GetSection("DeepSeek").Get<DeepSeekOptions>();
-
-        if (deepSeekOptions == null || string.IsNullOrEmpty(deepSeekOptions.ApiKey)) return services;
-
-        services.AddHttpClient(Constants.ClientNames.DeepSeekClient, client =>
+        if (config != null)
         {
-            client.BaseAddress = new Uri(Constants.BaseUrls.BaseUrl);
-            client.Timeout = TimeSpan.FromSeconds(120);
-            client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", "Bearer " + deepSeekOptions.ApiKey);
-        });
+            var deepSeekOptions = config.GetSection("DeepSeek").Get<DeepSeekOptions>();
+
+            if (deepSeekOptions != null && !string.IsNullOrEmpty(deepSeekOptions.ApiKey))
+            {
+                services.AddHttpClient(Constants.ClientNames.DeepSeekClient, client =>
+                {
+                    client.BaseAddress = new Uri(Constants.BaseUrls.BaseUrl);
+                    client.Timeout = TimeSpan.FromSeconds(120);
+                    client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", "Bearer " + deepSeekOptions.ApiKey);
+                });
+            }
+        }
+        else
+        {
+            services.AddHttpClient();
+        }
 
         services.AddScoped<IDeepSeekService, DeepSeekService>();
 

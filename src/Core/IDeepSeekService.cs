@@ -14,14 +14,22 @@ public interface IDeepSeekService
     /// 发送消息
     /// </summary>
     /// <param name="request">聊天请求</param>
-    /// <param name="cancellationToken">取消token</param>
+    /// <param name="cancellationToken">取消令牌</param>
     /// <returns></returns>
-    IAsyncEnumerable<Choice?> ChatStreamAsync(ChatRequest request, CancellationToken cancellationToken);
+    IAsyncEnumerable<Choice?> ApiChatStreamAsync(ApiChatRequest request, CancellationToken cancellationToken);
 
     /// <summary>
     /// 获取账户余额
     /// </summary>
-    /// <param name="cancellationToken"></param>
+    /// <param name="cancellationToken">取消令牌</param>
     /// <returns></returns>
-    Task<BalanceDto?> GetUserBalanceAsync(CancellationToken cancellationToken);
+    Task<BalanceDto?> ApiGetUserBalanceAsync(CancellationToken cancellationToken);
+
+    /// <summary>
+    /// 发送消息
+    /// </summary>
+    /// <param name="request">聊天请求</param>
+    /// <param name="cancellationToken">取消令牌</param>
+    /// <returns></returns>
+    IAsyncEnumerable<StreamingKernelContent?> OllamaChatStreamingAsync(OllamaChatRequest request, CancellationToken cancellationToken);
 }

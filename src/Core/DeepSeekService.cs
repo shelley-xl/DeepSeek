@@ -9,9 +9,9 @@ public class DeepSeekService(IHttpClientFactory factory) : IDeepSeekService
     /// 发送消息
     /// </summary>
     /// <param name="request">聊天请求</param>
-    /// <param name="cancellationToken">取消token</param>
+    /// <param name="cancellationToken">取消令牌</param>
     /// <returns></returns>
-    public async IAsyncEnumerable<Choice?> ChatStreamAsync(ChatRequest request, [EnumeratorCancellation] CancellationToken cancellationToken)
+    public async IAsyncEnumerable<Choice?> ApiChatStreamAsync(ApiChatRequest request, [EnumeratorCancellation] CancellationToken cancellationToken)
     {
         // 设置SSE
         request.Stream = true;
@@ -71,7 +71,7 @@ public class DeepSeekService(IHttpClientFactory factory) : IDeepSeekService
     /// </summary>
     /// <param name="cancellationToken">取消令牌</param>
     /// <returns></returns>
-    public async Task<BalanceDto?> GetUserBalanceAsync(CancellationToken cancellationToken)
+    public async Task<BalanceDto?> ApiGetUserBalanceAsync(CancellationToken cancellationToken)
     {
         // 创建DeepSeek客户端
         var client = factory.CreateClient(Constants.ClientNames.DeepSeekClient);
@@ -93,6 +93,48 @@ public class DeepSeekService(IHttpClientFactory factory) : IDeepSeekService
         }
 
         return result;
+    }
+
+    /// <summary>
+    /// 发送消息
+    /// </summary>
+    /// <param name="request">聊天请求</param>
+    /// <param name="cancellationToken">取消令牌</param>
+    /// <returns></returns>
+    public async IAsyncEnumerable<StreamingKernelContent?> OllamaChatStreamingAsync(OllamaChatRequest request, [EnumeratorCancellation] CancellationToken cancellationToken)
+    {
+        if (string.IsNullOrEmpty(request.ModelId))
+        {
+            _ErrorMessage = "ModelId不能为空";
+            yield break;
+        }
+
+        if (string.IsNullOrEmpty(request.BaseUrl))
+        {
+            _ErrorMessage = "BaseUrl不能为空";
+            yield break;
+        }
+
+        if (string.IsNullOrEmpty(request.PromptTemplate))
+        {
+            _ErrorMessage = "PromptTemplate不能为空";
+            yield break;
+        }
+
+        var builder = Kernel
+            .CreateBuilder()
+            .AddOllamaChatCompletion(request.ModelId, request.BaseUrl);
+
+        builder.Services.AddScoped<HttpClient>();
+
+        var kernel = builder.Build();
+
+        var response = kernel.InvokePromptStreamingAsync(request.PromptTemplate, cancellationToken: cancellationToken);
+
+        await foreach (var result in response)
+        {
+            yield return result;
+        }
     }
 
     /// <summary>

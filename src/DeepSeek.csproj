@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<!-- version numbers will be updated by build -->
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<TotalDays>$([System.DateTime]::Now.Date.Subtract($([System.DateTime]::Parse($([System.String]::Format("{0}-02-10",2025))))).TotalDays)</TotalDays>
 		<AssemblyVersion>$(Version).$(TotalDays)</AssemblyVersion>
 		<FileVersion>$(Version).$(TotalDays)</FileVersion>
@@ -14,8 +14,8 @@
 		<Company>徐来</Company>
 		<Title>DeepSeek</Title>
 		<Product>DeepSeek.NET</Product>
-		<Description></Description>
-		<Summary></Summary>
+		<Description>DeepSeek API SDK For .NET</Description>
+		<Summary>DeepSeek API SDK For .NET</Summary>
 		<Copyright>Copyright © 徐来 Xulai 2025</Copyright>
 		<RootNamespace>DeepSeek</RootNamespace>
 		<AssemblyName>DeepSeek</AssemblyName>
@@ -23,7 +23,7 @@
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/shelley-xl/DeepSeek</RepositoryUrl>
 		<PackageId>DeepSeek</PackageId>
-		<PackageTags>tools,helper,effective</PackageTags>
+		<PackageTags>tools,helper,effective,deepseek,ollama</PackageTags>
 		<PackageIcon>LOGO.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -36,6 +36,8 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.1" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="9.0.1" />
+		<PackageReference Include="Codeblaze.SemanticKernel.Connectors.Ollama" Version="1.3.1" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.36.1" />
 	</ItemGroup>
 
 	<ItemGroup>

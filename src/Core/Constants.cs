@@ -6,6 +6,52 @@
 public class Constants
 {
     /// <summary>
+    /// 模型
+    /// </summary>
+    public class OllamaModels
+    {
+        /// <summary>
+        /// deepseek-r1
+        /// </summary>
+        public const string DeepSeek_R1_latest = "deepseek-r1";
+
+        /// <summary>
+        /// deepseek-r1:1.5b
+        /// </summary>
+        public const string DeepSeek_R1_1_5b = "deepseek-r1:1.5b";
+
+        /// <summary>
+        /// deepseek-r1:7b
+        /// </summary>
+        public const string DeepSeek_R1_7b = "deepseek-r1:7b";
+
+        /// <summary>
+        /// deepseek-r1:8b
+        /// </summary>
+        public const string DeepSeek_R1_8b = "deepseek-r1:8b";
+
+        /// <summary>
+        /// deepseek-r1:14b
+        /// </summary>
+        public const string DeepSeek_R1_14b = "deepseek-r1:14b";
+
+        /// <summary>
+        /// deepseek-r1:32b
+        /// </summary>
+        public const string DeepSeek_R1_32b = "deepseek-r1:32b";
+
+        /// <summary>
+        /// deepseek-r1:70b
+        /// </summary>
+        public const string DeepSeek_R1_70b = "deepseek-r1:70b";
+
+        /// <summary>
+        /// deepseek-r1:671b
+        /// </summary>
+        public const string DeepSeek_R1_671b = "deepseek-r1:671b";
+    }
+
+    /// <summary>
     /// 接口地址
     /// </summary>
     public class BaseUrls
@@ -35,12 +81,12 @@ public class Constants
         /// <summary>
         /// 
         /// </summary>
-        public const string ChatEndpoint  = "/chat/completions";
+        public const string ChatEndpoint = "/chat/completions";
 
         /// <summary>
         /// 
         /// </summary>
-        public const string CompletionEndpoint  = "/completions";
+        public const string CompletionEndpoint = "/completions";
 
         /// <summary>
         /// 
