@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSeek", "src\DeepSeek.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSeek.Test", "tests\DeepSeek.Test\DeepSeek.Test.csproj", "{3B38B2EA-FD7C-4383-9ED4-90AC8FDA5634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSeek.TestConsole", "tests\DeepSeek.TestConsole\DeepSeek.TestConsole.csproj", "{E5D47730-FC65-473A-8A09-4CB7ED9C48E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSeek.ApiSimple", "simples\DeepSeek.ApiSimple\DeepSeek.ApiSimple.csproj", "{E5D47730-FC65-473A-8A09-4CB7ED9C48E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSeek.OllamaSimple", "simples\DeepSeek.OllamaSimple\DeepSeek.OllamaSimple.csproj", "{D757AA4F-DF62-4FC5-930E-F32817116008}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D661C15E-B241-437A-96BC-79EB89B2B45E}"
 	ProjectSection(SolutionItems) = preProject
@@ -35,6 +37,10 @@ Global
 		{E5D47730-FC65-473A-8A09-4CB7ED9C48E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5D47730-FC65-473A-8A09-4CB7ED9C48E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5D47730-FC65-473A-8A09-4CB7ED9C48E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D757AA4F-DF62-4FC5-930E-F32817116008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D757AA4F-DF62-4FC5-930E-F32817116008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D757AA4F-DF62-4FC5-930E-F32817116008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D757AA4F-DF62-4FC5-930E-F32817116008}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
